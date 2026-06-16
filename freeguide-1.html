@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Disconnect , Free Introduction Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --obsidian: #0f0a05;
+      --jade: #1a4a2e;
+      --jade-light: #2d6b45;
+      --gold: #d4922a;
+      --gold-light: #f0b84a;
+      --red: #9b2335;
+      --cream: #f5e6c8;
+      --cream-dim: rgba(245,230,200,0.65);
+      --stone: #7a6a55;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--obsidian);
+      color: var(--cream);
+      font-family: 'Crimson Pro', serif;
+      overflow-x: hidden;
+    }
+
+    /* STRIPE */
+    .stripe {
+      height: 5px;
+      background: linear-gradient(90deg,
+        var(--red) 0%, var(--red) 33.3%,
+        var(--jade) 33.3%, var(--jade) 66.6%,
+        var(--gold) 66.6%, var(--gold) 100%);
+    }
+
+    /* COVER */
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+      background: radial-gradient(ellipse at 50% 30%, rgba(26,74,46,0.3) 0%, transparent 70%);
+      position: relative;
+    }
+
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 200px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    /* SUN */
+    .sun {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 36px;
+      animation: spinSlow 40s linear infinite;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.2s, spinSlow 40s linear 1s infinite;
+    }
+
+    .cover-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.4s;
+    }
+
+    .cover h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(3.5rem, 15vw, 9rem);
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: 0.06em;
+      color: var(--cream);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s ease forwards 0.6s;
+    }
+
+    .cover-sub {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(0.5rem, 1.8vw, 0.65rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-top: 16px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 1s;
+    }
+
+    .gold-line {
+      width: 200px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 28px auto;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 1.1s;
+    }
+
+    .free-badge {
+      display: inline-block;
+      background: var(--red);
+      color: var(--cream);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 1.2s;
+    }
+
+    .cover-desc {
+      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+      color: var(--stone);
+      line-height: 1.9;
+      max-width: 380px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 1.3s;
+    }
+
+    .byline {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--stone);
+      letter-spacing: 0.12em;
+      margin-top: 48px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 1.5s;
+    }
+
+    /* CHAPTERS */
+    .chapter {
+      min-height: 100vh;
+      padding: 80px 24px 100px;
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-top: 1px solid rgba(245,230,200,0.06);
+    }
+
+    .chapter-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .chapter-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--jade-light);
+      letter-spacing: 0.1em;
+    }
+
+    .chapter-concept {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .chapter h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.8rem, 6vw, 3rem);
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 28px;
+    }
+
+    .chapter-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--red);
+      margin-bottom: 32px;
+    }
+
+    .chapter p {
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      line-height: 1.95;
+      color: var(--cream-dim);
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .chapter p:last-child { margin-bottom: 0; }
+
+    .chapter-closer {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      color: var(--gold-light);
+      margin-top: 32px;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    /* JADE BG alternating */
+    .chapter-jade {
+      background: linear-gradient(180deg, rgba(26,74,46,0.12) 0%, transparent 100%);
+    }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, #0a1f12 0%, var(--obsidian) 60%);
+      border-top: 1px solid rgba(212,146,42,0.25);
+      padding: 100px 24px 120px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f5e6c8' fill-opacity='0.02'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .cta-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--jade-light);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .cta-section h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .cta-gold-line {
+      width: 160px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 28px auto;
+    }
+
+    .cta-body {
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      color: var(--cream-dim);
+      line-height: 1.85;
+      font-style: italic;
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+
+    .cta-bold {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      color: var(--cream);
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--obsidian);
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 20px 52px;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 4px 24px rgba(212,146,42,0.25);
+    }
+
+    .cta-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(212,146,42,0.4);
+    }
+
+    .cta-note {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--stone);
+      letter-spacing: 0.1em;
+      margin-top: 16px;
+      display: block;
+    }
+
+    footer {
+      padding: 32px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(245,230,200,0.05);
+    }
+
+    footer p {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.55rem;
+      color: var(--stone);
+      letter-spacing: 0.1em;
+      opacity: 0.4;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="stripe"></div>
+
+<!-- COVER -->
+<section class="cover">
+  <svg class="sun" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" fill="#d4922a">
+    <circle cx="45" cy="45" r="14"/>
+    <circle cx="45" cy="45" r="7" fill="#0f0a05"/>
+    <rect x="43" y="4"  width="4" height="14" rx="2"/>
+    <rect x="43" y="72" width="4" height="14" rx="2"/>
+    <rect x="4"  cy="43" x="4" y="43" width="14" height="4" rx="2"/>
+    <rect x="72" y="43" width="14" height="4" rx="2"/>
+    <rect x="15" y="10" width="4" height="14" rx="2" transform="rotate(45 17 17)"/>
+    <rect x="57" y="62" width="4" height="14" rx="2" transform="rotate(45 59 69)"/>
+    <rect x="62" y="10" width="4" height="14" rx="2" transform="rotate(-45 64 17)"/>
+    <rect x="18" y="62" width="4" height="14" rx="2" transform="rotate(-45 20 69)"/>
+  </svg>
+
+  <p class="cover-eyebrow">Free Introduction Guide</p>
+  <h1>Disconnect</h1>
+  <p class="cover-sub">Nahua Philosophy for the Distracted Generation</p>
+
+  <div class="gold-line"></div>
+  <span class="free-badge">Three Foundational Concepts</span>
+
+  <p class="cover-desc">
+    Ancient wisdom for the modern mind.<br/>
+    Read this first. Then go deeper.
+  </p>
+
+  <p class="byline">by Polodirects , @polodirects_ce</p>
+</section>
+
+<!-- CHAPTER 1 -->
+<section class="chapter">
+  <div class="chapter-meta">
+    <span class="chapter-num">01</span>
+    <span class="chapter-concept">Nepantla</span>
+  </div>
+  <h2>The Art of the Middle</h2>
+  <div class="chapter-divider"></div>
+  <p>As humans we tend to live in extremes. Something good happens and we are on top of the world. Something bad happens and we are destroyed by it. We swing from one end to the other our whole lives and wonder why we are exhausted.</p>
+  <p>Nepantla is the ancient Nahua concept of the middle. And it is not what you think.</p>
+  <p>Being in the middle does not mean being emotionless. It does not mean being cold or detached or unbothered. It means being an observer. It means you are not your reactions. You are the one watching them.</p>
+  <p>Think about it like this: if you had a terrible day, using Nepantla you did not have a bad day. You did not have a good day either. You just had a day. A series of moments that passed through you without owning you.</p>
+  <p>This is not a protection mechanism. It is not a wall you build around yourself. It is a way of deciding what you let attach to you and what you do not. What you let in and what you release.</p>
+  <p>The Nahua people understood something we forgot: peace is not the absence of chaos. Peace is learning to exist in the middle of it without being consumed by it.</p>
+  <p class="chapter-closer">You are not a reaction. You are a presence. That is Nepantla.</p>
+</section>
+
+<!-- CHAPTER 2 -->
+<section class="chapter chapter-jade">
+  <div class="chapter-meta">
+    <span class="chapter-num">02</span>
+    <span class="chapter-concept">Tlalticpac</span>
+  </div>
+  <h2>The Slippery Earth</h2>
+  <div class="chapter-divider"></div>
+  <p>The Nahua had a proverb that has survived 500 years because it is still completely true today: "It is slippery. It is slick on the earth."</p>
+  <p>Tlalticpac is the Nahua belief that the world is inherently chaotic and violent by nature. Not sometimes. Not occasionally. Always. That is just what the world is. And here is why that is actually liberating.</p>
+  <p>Imagine walking into a building where the floor is wet. No warning sign. No heads up. You slip and bust your ass. Now imagine the same building but this time you already knew the floor was wet. You walk in differently. More careful. More aware. You do not stop walking, you just walk with intention. That is Tlalticpac.</p>
+  <p>Most people walk through life thinking they are invincible. That bad things happen to other people. That if they just work hard enough and do everything right the floor will somehow be dry for them. And then one day they find out. The floor was always wet. Nobody told them.</p>
+  <p>This philosophy is not asking you to be afraid of the world. It is asking you to be aware. To walk with your eyes open. To stop being surprised when life does exactly what it was always designed to do.</p>
+  <p class="chapter-closer">The world is chaotic. That is not a problem to solve. That is a truth to accept. And the moment you accept it, you stop slipping as much. That is Tlalticpac.</p>
+</section>
+
+<!-- CHAPTER 3 -->
+<section class="chapter">
+  <div class="chapter-meta">
+    <span class="chapter-num">03</span>
+    <span class="chapter-concept">Teotl</span>
+  </div>
+  <h2>The Sacred Energy You Already Are</h2>
+  <div class="chapter-divider"></div>
+  <p>Most people who have walked away from religion still feel it. That pull toward something bigger. That quiet sense that there is more to life than what they can see and touch. They just do not have a word for it anymore.</p>
+  <p>Your ancestors had a word for it 500 years ago. They called it Teotl.</p>
+  <p>Teotl is not a God. It is not a religion. The Spanish mistranslated it when they arrived, they heard the word and assumed it meant God because it sounded like the Greek word Theus. But Teotl does not mean God. It means sacred energy. The energy that moves through everything. The tree outside your window. The river. The mountain. You. All of it, one single sacred force in constant motion.</p>
+  <p>Everything you see, every person, every object, every living thing, is a temporary expression of the same energy. Underneath every difference is the same thing. Teotl. One energy wearing infinite faces. And you are one of those faces.</p>
+  <p>You are never truly alone. You are not a separate accident floating through an indifferent universe. You are made of the same stuff as everything that has ever existed.</p>
+  <p>You are never truly insignificant. You are a temporary expression of the same sacred energy that created the sun and the ocean and every living thing on earth. That is not nothing. That is everything.</p>
+  <p>You never truly end. Energy is never created or destroyed. It just changes form. Your ancestors knew this before modern physics had a name for it.</p>
+  <p class="chapter-closer">You do not need a church for this. You just need to look at a tree and understand that what is running through it is running through you too.</p>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <span class="cta-eyebrow">You just read the introduction.</span>
+    <h2>Now go deeper.</h2>
+    <div class="cta-gold-line"></div>
+    <p class="cta-body">Nepantla, Tlalticpac, and Teotl are not concepts you learn once and move on from. They are a way of seeing. And reading about them is not the same as living them.</p>
+    <p class="cta-bold">Disconnect is where you go to actually live it , a 30 day challenge built on these exact concepts.<br/>Five chapters. 30 days. Daily practices and reflection exercises.<br/>Ancient Nahua wisdom applied to your life, one day at a time.</p>
+    <a href="https://forms.gle/QWSPnvctzMyVGEdh6" class="cta-btn">Join the Waitlist</a>
+    <span class="cta-note">First 30 people get the 30 day challenge for $10. Everyone after pays $20.</span>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<footer>
+  <p>© 2026 PoloDirects Create & Escape , All rights reserved , @polodirects_ce</p>
+</footer>
+
+</body>
+</html>
